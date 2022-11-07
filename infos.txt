@@ -1,0 +1,14 @@
+BackEnd - Un CRUD en API REST en Node.js/Express lié à une base de donnée MongoDB
+
+Structure d'une requête
+1.Verbes HTTP = GET, PUT, POST, DELETE
+2.Header
+3.Path
+4.Body
+
+Structure d'une réponse
+1. Code de réponse HTTP
+2. Header
+3. Body
+
+FrontEnd - Application Web en ReactJs, CRUD Produits
