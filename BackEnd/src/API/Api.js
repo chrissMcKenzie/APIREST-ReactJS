@@ -62,7 +62,7 @@ router.patch("/telephone/:id", getTelephone, async(requête, réponse)=>{ // upd
     }
 
     try {
-        const updateTelephone = await telephone.createTelephone()
+        const updateTelephone = await TelephonesCollection.createTelephone()
         réponse.json(updateTelephone) // 201 = Created
     } catch (erreur) {
         réponse.status(400).json({message: erreur.message}) // 400 = Bad Request
