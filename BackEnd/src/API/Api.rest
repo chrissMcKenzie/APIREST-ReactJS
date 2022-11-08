@@ -6,6 +6,13 @@ GET http://localhost:8081/telephones
 
 ###
 
+GET http://localhost:8081/telephone/1
+
+###
+GET http://localhost:8081/telephones/636a48c3d27e9b3fb8287c8e
+
+###
+
 POST http://localhost:8081/telephones
 Content-Type: application/json
 
@@ -21,4 +28,13 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8081/telephone/23
+DELETE http://localhost:8081/telephones/636a48c3d27e9b3fb8287c8e
+
+###
+PATCH http://localhost:8081/telephones/636a48c3d27e9b3fb8287c8e
+Content-Type: application/json
+
+{
+   
+    "name": "nouveau AC1 Phone1",
+}

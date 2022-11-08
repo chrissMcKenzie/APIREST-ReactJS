@@ -9,6 +9,14 @@ class Telephone {
         TelephonesCollection.insertOne(this.data)
     }
 
+    // FindById(idTelephone){
+    //     try {
+    //         TelephonesCollection.findOne({idTelephone}) 
+    //         // TelephonesCollection.findOne({id: idTelephone}) 
+    //     } catch (erreur) {
+    //         console.log(erreur)
+    //     }
+    // }
     // async readTelephone(){
     //     try {
     //         const telephones = TelephonesCollection.findById()

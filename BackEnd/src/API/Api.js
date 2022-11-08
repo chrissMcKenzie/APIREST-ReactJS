@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {TelephonesCollection, Telephone} = require("./MVC/Model/TelephoneModel")
+const {TelephonesCollection, Telephone} = require("./MVC/Model/TelephoneModel.js")
 
 //* Create
 router.post("/", (requête, réponse)=>{
@@ -17,7 +17,7 @@ router.post("/telephones", async (requête, réponse)=>{
         warranty_years: requête.body.warranty_years,
         available: requête.body.available
     })
-    console.log(telephone)
+    // console.log(telephone)
     try {
         const nouveauTelephone = await telephone.createTelephone()
         réponse.status(201).json(nouveauTelephone) // 201 = Created
@@ -43,27 +43,47 @@ router.get("/telephones", async (requête, réponse)=>{
 //* Read One
 router.get("/telephone/:id", getTelephone, (requête, réponse)=>{
     // réponse.send(requête.params.id)
-    réponse.send(réponse.téléphone.name)
+    // réponse.send(réponse.téléphone.name)
+    // réponse.send(réponse.téléphone)
+    réponse.json(réponse.téléphone)
 })
 
 //* Update
 // router.put("/telephone/:id", (requête, réponse)=>{ // update tout les données
     
 // })
-router.patch("/telephone/:id", (requête, réponse)=>{ // update les données qu'on a passé
-    
+router.patch("/telephone/:id", getTelephone, async(requête, réponse)=>{ // update les données qu'on a passé
+    if(requête.body.name != null){
+        réponse.téléphone.name = requête.body.name
+    }
+
+    if(requête.body.type != null){
+        réponse.téléphone.type = requête.body.type
+    }
+
+    try {
+        const updateTelephone = await telephone.createTelephone()
+        réponse.json(updateTelephone) // 201 = Created
+    } catch (erreur) {
+        réponse.status(400).json({message: erreur.message}) // 400 = Bad Request
+    }
 })
 
 //* Delete
-router.delete("/telephone/:id", (requête, réponse)=>{
-
+router.delete("/telephone/:id", getTelephone, async (requête, réponse)=>{
+    try {
+        await réponse.téléphone.remove()
+        réponse.json({message: "Suppréssion du Téléphone"})
+    } catch (erreur) {
+        réponse.status(500).json({message: erreur.message})
+    }
 })
 
 
 async function getTelephone(requête, réponse, fonctionSuivante){
     let téléphone
     try {
-        téléphone = Telephone.findById(requête.params.id)
+        téléphone = await TelephonesCollection.findOne({id: requête.params.id})
         if(téléphone == null){
             return réponse.status(404).json({message: "Ne peut trouver le téléphone"})
         }
