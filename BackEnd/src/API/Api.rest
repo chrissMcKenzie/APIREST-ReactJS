@@ -1,0 +1,9 @@
+GET http://localhost:8081/
+
+###
+
+GET http://localhost:8081/telephones
+
+###
+
+GET http://localhost:8081/telephone/23
