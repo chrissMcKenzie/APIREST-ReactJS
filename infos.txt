@@ -14,3 +14,25 @@ Structure d'une réponse
 FrontEnd - Application Web en ReactJs, CRUD Produits
 
 Documentation API
+
+[Codes-Trash]
+// Api.get("/", (requête, réponse)=>{
+//     réponse.status(200).send({
+//         tshirt: 'T',
+//         size: 'large'
+//     })
+// })
+
+// Api.post("/telephone/:id", (requête, réponse)=>{
+//     const {id} = requête.params
+//     const {logo} = requête.body
+
+//     if(!logo){
+//         réponse.status(418).send({message: "On a besoin d'un logo!"})
+//     }
+
+//     réponse.send({
+//         tshirt: `Z with your ${logo} and ID of ${id}`
+//     })
+
+// })
