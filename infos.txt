@@ -16,6 +16,9 @@ FrontEnd - Application Web en ReactJs, CRUD Produits
 Documentation API
 
 [Codes-Trash]
+// Api.use(express.static(__dirname + '/public'))
+Api.use(express.static("./../../FrrontEnd/public"))
+
 // Api.get("/", (requête, réponse)=>{
 //     réponse.status(200).send({
 //         tshirt: 'T',
@@ -36,3 +39,36 @@ Documentation API
 //     })
 
 // })
+
+
+router.patch("/telephone/:id", async(requête, réponse)=>{ // update les données qu'on a passé
+    if(requête.body.name != null){
+        réponse.téléphone.name = requête.body.name
+    }
+
+    if(requête.body.type != null){
+        réponse.téléphone.type = requête.body.type
+    }
+
+    try {
+        const updateTelephone = await TelephonesCollection.createTelephone()
+        réponse.json(updateTelephone) // 201 = Created
+    } catch (erreur) {
+        réponse.status(400).json({message: erreur.message}) // 400 = Bad Request
+    }
+})
+
+async function getTelephone(requête, réponse, fonctionSuivante){
+    let téléphone
+    try {
+        téléphone = await TelephonesCollection.findOne({id: requête.params.id})
+        if(téléphone == null){
+            return réponse.status(404).json({message: "Ne peut trouver le téléphone"})
+        }
+    } catch (erreur) {
+        return réponse.status(500).json({message: erreur.message})
+    }
+
+    réponse.téléphone = téléphone
+    fonctionSuivante()
+}

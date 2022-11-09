@@ -9,11 +9,11 @@ GET http://localhost:8081/telephones
 GET http://localhost:8081/telephone/1
 
 ###
-GET http://localhost:8081/telephones/636a48c3d27e9b3fb8287c8e
+GET http://localhost:8081/telephone/636a48c3d27e9b3fb8287c8e
 
 ###
 
-POST http://localhost:8081/telephones
+POST http://localhost:8081/telephone/create
 Content-Type: application/json
 
 {
@@ -28,13 +28,18 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8081/telephones/636a48c3d27e9b3fb8287c8e
+DELETE http://localhost:8081/telephone/636a48c3d27e9b3fb8287c8e
 
 ###
-PATCH http://localhost:8081/telephones/636a48c3d27e9b3fb8287c8e
+PUT http://localhost:8081/telephone/636a48c3d27e9b3fb8287c8e
 Content-Type: application/json
 
 {
-   
-    "name": "nouveau AC1 Phone1",
+    "id" : 1,
+    "name" : "2 vAC1 Phone1",
+    "type" : "phone",
+    "price" : 200.05,
+    "rating" : 3.8,
+    "warranty_years" : 1,
+    "available" : true
 }

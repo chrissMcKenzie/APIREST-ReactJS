@@ -11,6 +11,9 @@ async function connexion(){
     } catch (erreur) {
         console.error(erreur)
     }
+
+    // // Close connection
+    // client.close();
 }
 connexion()
 

@@ -3,27 +3,18 @@ const TelephonesCollection = require('./db/MongoDB.js').db().collection("telepho
 class Telephone {
     constructor(_data){
         this.data = _data
+        console.log(this.data)
     }
 
     createTelephone(){
         TelephonesCollection.insertOne(this.data)
     }
 
-    // FindById(idTelephone){
-    //     try {
-    //         TelephonesCollection.findOne({idTelephone}) 
-    //         // TelephonesCollection.findOne({id: idTelephone}) 
-    //     } catch (erreur) {
-    //         console.log(erreur)
-    //     }
-    // }
-    // async readTelephone(){
-    //     try {
-    //         const telephones = TelephonesCollection.findById()
-    //     } catch (error) {
-            
-    //     }
-    // }
+    readTelephones(){
+        TelephonesCollection.find({})
+        // TelephonesCollection.findOne({id: idTelephone}) 
+    }
+
 }
 
 module.exports = {TelephonesCollection, Telephone}
