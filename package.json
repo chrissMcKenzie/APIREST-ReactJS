@@ -4,7 +4,7 @@
   "description": "",
   "main": "./FrontEnd/src/index.jsx",
   "scripts": {
-    "start": "npm run backend",
+    "start": "npm run backend && npm run dev",
     "backend": "nodemon ./BackEnd/src/index.js",
     "frontend": "nodemon ./FrontEnd/src/index.js",
     "dev": "webpack-dev-server"

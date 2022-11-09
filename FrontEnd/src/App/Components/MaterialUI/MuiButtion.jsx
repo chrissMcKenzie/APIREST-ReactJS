@@ -1,13 +1,26 @@
 import React from 'react'
-import {Button} from '@mui/material'
+import {Stack, Button} from '@mui/material'
 
 
 export const MuiButtion = () => {
   return (
-    <div>
-        <Button variant="text">Text</Button>
+    <Stack spacing={4}>
+      <Stack spacing={2} direction="column">
+        <Button variant="text" href="https://google.com">Text</Button>
+        <Button variant="outlined" href="/telephone/create">Ajouter un Téléphone</Button>
         <Button variant="contained">Contained</Button>
         <Button variant="outlined">Outlined</Button>
-    </div>
+      </Stack>
+      <Stack display="block" spacing={2} direction="row">
+        <Button variant="contained" color='primary'>Primary</Button>
+        <Button variant="contained" color='secondary'>Secondary</Button>
+        <Button variant="contained" color='error'>Error</Button>
+        <Button variant="contained" color='warning'>Warning</Button>
+        <Button variant="contained" color='info'>Info</Button>
+        <Button variant="contained" color='success'>Success</Button>
+      </Stack>
+      <Stack display="block">
+      </Stack>
+    </Stack>
   )
 }

@@ -5,3 +5,5 @@
 # Nodes Modules #
 ######################
 node_modules/
+
+.env
