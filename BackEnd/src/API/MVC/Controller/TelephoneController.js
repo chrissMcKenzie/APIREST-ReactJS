@@ -6,18 +6,26 @@ exports.ApiHome = (requête, réponse)=>{
 }
 
 exports.ApiPostTelephone = async (requête, réponse)=>{
-    const telephone = new Telephone({
-        id: requête.body.id,
-        name: requête.body.name,
-        type: requête.body.type,
-        price: parseFloat(requête.body.price),
-        rating: requête.body.rating,
-        warranty_years: requête.body.warranty_years,
-        available: requête.body.available
-    })
+    // const telephone = new Telephone({
+    //     id: requête.body.id,
+    //     name: requête.body.name,
+    //     type: requête.body.type,
+    //     price: parseFloat(requête.body.price),
+    //     rating: requête.body.rating,
+    //     warranty_years: requête.body.warranty_years,
+    //     available: requête.body.available
+    // })
     try {
         // const nouveauTelephone = await telephone.createTelephone()
-        const nouveauTelephone = await TelephonesCollection.insertOne(telephone).then(resultat => {
+        const nouveauTelephone = await TelephonesCollection.insertOne({
+            id: requête.body.id,
+            name: requête.body.name,
+            type: requête.body.type,
+            price: parseFloat(requête.body.price),
+            rating: requête.body.rating,
+            warranty_years: requête.body.warranty_years,
+            available: requête.body.available
+        }).then(resultat => {
             console.log(resultat)
         }).catch(erreur => {
             console.log(erreur)

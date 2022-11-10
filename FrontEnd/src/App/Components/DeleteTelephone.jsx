@@ -33,7 +33,7 @@ export default function Telephones() {
 
     return (
         <>
-            <form onSubmit={handleSubmit} style={{marginTop: "8%", marginLeft: "7%", backgroundColor: "black"}}>
+            <form onSubmit={handleSubmit} style={{marginTop: "8%", marginLeft: "27%", backgroundColor: "darkred"}}>
                 <TextField style={styleForm} type="number" label="id" variant="outlined"
                     onChange={e=> setId(e.target.value)} />
                 <br />
@@ -56,7 +56,7 @@ export default function Telephones() {
                     onChange={(e)=> e.target.value === "true" ? setAvailable(true) : setAvailable(false)} />
                 <br />
                 <Button type="submit" variant="contained" href="/telephone/create" color="success">
-                    Ajouter un Téléphone
+                    Supprimer un Téléphone
                 </Button>
             </form>  
         </>

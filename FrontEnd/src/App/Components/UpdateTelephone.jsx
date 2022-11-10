@@ -17,7 +17,7 @@ export default function Telephones() {
     async function handleSubmit(e){
         e.preventDefault()
         try{
-            const réponse = await Axios.post(`/telephone/create`, {id, name, type, price, rating, warranty_years, available})
+            const réponse = await Axios.post(`/telephone/${id}/update`, {id, name, type, price, rating, warranty_years, available})
            if(réponse.data){
             console.log("Telephone was created.", réponse.data)
            }else{
@@ -33,7 +33,7 @@ export default function Telephones() {
 
     return (
         <>
-            <form onSubmit={handleSubmit} style={{marginTop: "8%", marginLeft: "7%", backgroundColor: "black"}}>
+            <form onSubmit={handleSubmit} style={{marginTop: "8%", marginLeft: "20%", backgroundColor: "darkorange"}}>
                 <TextField style={styleForm} type="number" label="id" variant="outlined"
                     onChange={e=> setId(e.target.value)} />
                 <br />
@@ -56,7 +56,7 @@ export default function Telephones() {
                     onChange={(e)=> e.target.value === "true" ? setAvailable(true) : setAvailable(false)} />
                 <br />
                 <Button type="submit" variant="contained" href="/telephone/create" color="success">
-                    Ajouter un Téléphone
+                    Update un Téléphone
                 </Button>
             </form>  
         </>
