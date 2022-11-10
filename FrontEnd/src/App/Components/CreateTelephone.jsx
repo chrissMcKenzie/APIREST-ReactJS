@@ -12,7 +12,7 @@ export default function Telephones() {
     const [warranty_years, setWarranty_years] = useState()
     const [available, setAvailable] = useState(true)
 
-    console.log(id, name, type, price, rating, warranty_years, available)
+    // console.log(id, name, type, price, rating, warranty_years, available)
 
     async function handleSubmit(e){
         e.preventDefault()
@@ -55,7 +55,8 @@ export default function Telephones() {
                 <TextField style={styleForm} type="text" label="available" variant="outlined"
                     onChange={(e)=> e.target.value === "true" ? setAvailable(true) : setAvailable(false)} />
                 <br />
-                <Button type="submit" variant="contained" href="/telephone/create" color="success">
+                <Button type="submit" variant="contained" href="/telephone/create" color="success"
+                    onClick={() => handleSubmit()}>
                     Ajouter un Téléphone
                 </Button>
             </form>  
